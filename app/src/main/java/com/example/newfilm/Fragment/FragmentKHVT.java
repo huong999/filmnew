@@ -22,6 +22,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.newfilm.Activity.Detail;
 import com.example.newfilm.Adapter.Adapter;
+import com.example.newfilm.Model.AttributeVideo;
 import com.example.newfilm.Model.Video;
 import com.example.newfilm.OnClick.OnItemClickListener;
 import com.example.newfilm.R;
@@ -97,7 +98,7 @@ SqlHelper sqlHelper;
                 JSONObject jsonresourceId = jsonsnippet.getJSONObject("resourceId");
                 String kind = jsonresourceId.getString("kind");
                 String videoId = jsonresourceId.getString("videoId");
-                Video v = new Video(publishedAt, title, description, urlimg, kind, videoId, playlistId);
+                Video v = new Video(publishedAt, title, description, urlimg, kind, videoId, playlistId, AttributeVideo.KHVT);
                 videos.add(v);
 
             }

@@ -1,14 +1,11 @@
 package com.example.newfilm.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.newfilm.Model.Video;
 import com.example.newfilm.R;
-import com.example.newfilm.Utils.Utils;
 import com.example.newfilm.Utils.Utils2;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -39,7 +36,7 @@ public class PlayFilm extends YouTubeBaseActivity implements YouTubePlayer.OnIni
         time = intent.getStringExtra("time");
         img = intent.getStringExtra("img");
         kind = intent.getStringExtra("kind");
-        video = new Video(time,name,des,img,kind,VIDEO_ID,idPlayList);
+        video = new Video(time, name, des, img, kind, VIDEO_ID, idPlayList, "");
         Utils2.getList().add(video);
     }
 

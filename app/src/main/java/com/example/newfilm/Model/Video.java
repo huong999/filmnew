@@ -11,10 +11,13 @@ public class Video implements Parcelable, Serializable {
     String date;
     int id;
     int idAcc;
+    String category;
 
+    public String getCategory() {
+        return category;
+    }
 
-
-    public Video(String publishedAt, String title, String description, String url, String kind, String videoID, String playlistId, String date, int idAcc) {
+    public Video(String publishedAt, String title, String description, String url, String kind, String videoID, String playlistId, String date, int idAcc, String category) {
 
         this.publishedAt = publishedAt;
         this.title = title;
@@ -25,6 +28,7 @@ public class Video implements Parcelable, Serializable {
         this.playlistId = playlistId;
         this.date = date;
         this.idAcc = idAcc;
+        this.category = category;
     }
 
     public int getIdAcc() {
@@ -111,7 +115,19 @@ public class Video implements Parcelable, Serializable {
         this.id = id;
     }
 
-    public Video(String publishedAt, String title, String description, String url, String kind, String videoID, String playlistId) {
+    public Video(String publishedAt, String title, String description, String url, String kind, String videoID, String playlistId, int id, String category) {
+        this.category = category;
+        this.publishedAt = publishedAt;
+        this.title = title;
+        this.description = description;
+        this.url = url;
+        this.kind = kind;
+        this.videoID = videoID;
+        this.playlistId = playlistId;
+        this.id = id;
+    }
+
+    public Video(String publishedAt, String title, String description, String url, String kind, String videoID, String playlistId, String category) {
         this.publishedAt = publishedAt;
         this.title = title;
         this.description = description;
@@ -120,6 +136,7 @@ public class Video implements Parcelable, Serializable {
         this.videoID = videoID;
         this.playlistId = playlistId;
         this.date = "";
+        this.category = category;
     }
 
     public Video(String title, String description, String videoID, String playlistId) {

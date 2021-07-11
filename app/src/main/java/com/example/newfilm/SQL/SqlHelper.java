@@ -38,53 +38,56 @@ public class SqlHelper extends
     static final int DB_VERSION = 1;
     SQLiteDatabase sqLiteDatabase;
     ContentValues contentValues;
+
     public SqlHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String queryCreateTableAccount = "CREATE TABLE "+ DB_TABLE_ACCOUNT +"(" +
+        String queryCreateTableAccount = "CREATE TABLE " + DB_TABLE_ACCOUNT + "(" +
                 "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                 "phone Text," +
                 "password Text," +
-                "fullname Text,"+
+                "fullname Text," +
                 "address Text)";
         db.execSQL(queryCreateTableAccount);
 
-        String queryCreateTableAllfilm = "CREATE TABLE "+ DB_TABLE_ALL_FILM +"(" +
+        String queryCreateTableAllfilm = "CREATE TABLE " + DB_TABLE_ALL_FILM + "(" +
                 "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                 "publishedAt Text," +
                 "title Text," +
                 "description Text," +
-                "url Text,"+
-                "kind Text,"+
-                "videoID Text,"+
+                "url Text," +
+                "kind Text," +
+                "videoID Text," +
+                "category Text," +
                 "playlistId Text)";
         db.execSQL(queryCreateTableAllfilm);
-        String queryCreateTableHistory = "CREATE TABLE "+ DB_TABLE_HISTORY +"(" +
+        String queryCreateTableHistory = "CREATE TABLE " + DB_TABLE_HISTORY + "(" +
                 "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                "idAcc INTEGER,"+
+                "idAcc INTEGER," +
                 "publishedAt Text," +
                 "title Text," +
                 "description Text," +
-                "url Text,"+
-                "kind Text,"+
-                "videoID Text,"+
-                "playlistId Text,"+
+                "url Text," +
+                "kind Text," +
+                "videoID Text," +
+                "playlistId Text," +
                 "date Text)";
         db.execSQL(queryCreateTableHistory);
 
-        String queryCreateTableXemSau = "CREATE TABLE "+ DB_TABLE_XEM_SAU +"(" +
+        String queryCreateTableXemSau = "CREATE TABLE " + DB_TABLE_XEM_SAU + "(" +
                 "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                "idAcc INTEGER,"+
+                "idAcc INTEGER," +
                 "publishedAt Text," +
                 "title Text," +
                 "description Text," +
-                "url Text,"+
-                "kind Text,"+
-                "videoID Text,"+
-                "playlistId Text,"+
+                "url Text," +
+                "kind Text," +
+                "videoID Text," +
+                "playlistId Text," +
                 "date Text)";
         db.execSQL(queryCreateTableXemSau);
     }
@@ -100,12 +103,14 @@ public class SqlHelper extends
         contentValues.put(KIND, video.getKind());
         contentValues.put(VIDEOID, video.getVideoID());
         contentValues.put(PLAYLISTID, video.getPlaylistId());
+        contentValues.put("category", video.getCategory());
         sqLiteDatabase.insert(DB_TABLE_ALL_FILM, null, contentValues);
     }
-    public List<Video> getAllFilm(){
+
+    public List<Video> getAllFilm() {
         List<Video> list = new ArrayList<>();
         sqLiteDatabase = getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.query(false,DB_TABLE_ALL_FILM,
+        Cursor cursor = sqLiteDatabase.query(false, DB_TABLE_ALL_FILM,
                 null,
                 null,
                 null,
@@ -113,20 +118,22 @@ public class SqlHelper extends
                 null,
                 null,
                 null);
-        while (cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             int id = cursor.getInt(cursor.getColumnIndex(ID));
-            String publishedAt =cursor.getString(cursor.getColumnIndex(PUBLISHEDAT));
-            String title =cursor.getString(cursor.getColumnIndex(TITLE));
-            String description =cursor.getString(cursor.getColumnIndex(DESCRIPTION));
-            String url =cursor.getString(cursor.getColumnIndex(URL));
-            String kind =cursor.getString(cursor.getColumnIndex(KIND));
-            String videoID =cursor.getString(cursor.getColumnIndex(VIDEOID));
-            String playlistId =cursor.getString(cursor.getColumnIndex(PLAYLISTID));
+            String publishedAt = cursor.getString(cursor.getColumnIndex(PUBLISHEDAT));
+            String title = cursor.getString(cursor.getColumnIndex(TITLE));
+            String description = cursor.getString(cursor.getColumnIndex(DESCRIPTION));
+            String url = cursor.getString(cursor.getColumnIndex(URL));
+            String kind = cursor.getString(cursor.getColumnIndex(KIND));
+            String videoID = cursor.getString(cursor.getColumnIndex(VIDEOID));
+            String playlistId = cursor.getString(cursor.getColumnIndex(PLAYLISTID));
+            String category = cursor.getString(cursor.getColumnIndex("category"));
             //String publishedAt, String title, String description, String url, String kind, String videoID, String playlistId, int id) {
-            list.add(new Video(publishedAt,title,description,url,kind,videoID,playlistId,id));
+            list.add(new Video(publishedAt, title, description, url, kind, videoID, playlistId, id, category));
         }
         return list;
     }
+
     public int deleteItemInFilm(int id) {
         sqLiteDatabase = getWritableDatabase();
         return sqLiteDatabase.delete(DB_TABLE_ALL_FILM, "id=?", new String[]{String.valueOf(id)});
@@ -146,10 +153,11 @@ public class SqlHelper extends
         contentValues.put(IDACC, video.getIdAcc());
         sqLiteDatabase.insert(DB_TABLE_HISTORY, null, contentValues);
     }
-    public List<Video> getAllFilmHistory(){
+
+    public List<Video> getAllFilmHistory() {
         List<Video> list = new ArrayList<>();
         sqLiteDatabase = getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.query(false,DB_TABLE_HISTORY,
+        Cursor cursor = sqLiteDatabase.query(false, DB_TABLE_HISTORY,
                 null,
                 null,
                 null,
@@ -157,23 +165,24 @@ public class SqlHelper extends
                 null,
                 null,
                 null);
-            while (cursor.moveToNext()){
+        while (cursor.moveToNext()) {
 
-            String publishedAt =cursor.getString(cursor.getColumnIndex(PUBLISHEDAT));
-            String title =cursor.getString(cursor.getColumnIndex(TITLE));
-            String description =cursor.getString(cursor.getColumnIndex(DESCRIPTION));
-            String url =cursor.getString(cursor.getColumnIndex(URL));
-            String kind =cursor.getString(cursor.getColumnIndex(KIND));
-            String videoID =cursor.getString(cursor.getColumnIndex(VIDEOID));
-            String playlistId =cursor.getString(cursor.getColumnIndex(PLAYLISTID));
-            String date =cursor.getString(cursor.getColumnIndex(DATE));
+            String publishedAt = cursor.getString(cursor.getColumnIndex(PUBLISHEDAT));
+            String title = cursor.getString(cursor.getColumnIndex(TITLE));
+            String description = cursor.getString(cursor.getColumnIndex(DESCRIPTION));
+            String url = cursor.getString(cursor.getColumnIndex(URL));
+            String kind = cursor.getString(cursor.getColumnIndex(KIND));
+            String videoID = cursor.getString(cursor.getColumnIndex(VIDEOID));
+            String playlistId = cursor.getString(cursor.getColumnIndex(PLAYLISTID));
+            String date = cursor.getString(cursor.getColumnIndex(DATE));
             int id = cursor.getInt(cursor.getColumnIndex(ID));
-            int idAcc =cursor.getInt(cursor.getColumnIndex(IDACC));
+            int idAcc = cursor.getInt(cursor.getColumnIndex(IDACC));
 
-            list.add(new Video(publishedAt,title,description,url,kind,videoID,playlistId,date,id,idAcc));
+            list.add(new Video(publishedAt, title, description, url, kind, videoID, playlistId, date, id, idAcc));
         }
         return list;
     }
+
     public int deleteItemInHistory(int id) {
         sqLiteDatabase = getWritableDatabase();
         return sqLiteDatabase.delete(DB_TABLE_HISTORY, "id=?", new String[]{String.valueOf(id)});
@@ -193,10 +202,11 @@ public class SqlHelper extends
         contentValues.put(IDACC, video.getIdAcc());
         sqLiteDatabase.insert(DB_TABLE_XEM_SAU, null, contentValues);
     }
-    public List<Video> getAllFilmXemSau(){
+
+    public List<Video> getAllFilmXemSau() {
         List<Video> list = new ArrayList<>();
         sqLiteDatabase = getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.query(false,DB_TABLE_XEM_SAU,
+        Cursor cursor = sqLiteDatabase.query(false, DB_TABLE_XEM_SAU,
                 null,
                 null,
                 null,
@@ -204,28 +214,28 @@ public class SqlHelper extends
                 null,
                 null,
                 null);
-        while (cursor.moveToNext()){
+        while (cursor.moveToNext()) {
 
-            String publishedAt =cursor.getString(cursor.getColumnIndex(PUBLISHEDAT));
-            String title =cursor.getString(cursor.getColumnIndex(TITLE));
-            String description =cursor.getString(cursor.getColumnIndex(DESCRIPTION));
-            String url =cursor.getString(cursor.getColumnIndex(URL));
-            String kind =cursor.getString(cursor.getColumnIndex(KIND));
-            String videoID =cursor.getString(cursor.getColumnIndex(VIDEOID));
-            String playlistId =cursor.getString(cursor.getColumnIndex(PLAYLISTID));
-            String date =cursor.getString(cursor.getColumnIndex(DATE));
+            String publishedAt = cursor.getString(cursor.getColumnIndex(PUBLISHEDAT));
+            String title = cursor.getString(cursor.getColumnIndex(TITLE));
+            String description = cursor.getString(cursor.getColumnIndex(DESCRIPTION));
+            String url = cursor.getString(cursor.getColumnIndex(URL));
+            String kind = cursor.getString(cursor.getColumnIndex(KIND));
+            String videoID = cursor.getString(cursor.getColumnIndex(VIDEOID));
+            String playlistId = cursor.getString(cursor.getColumnIndex(PLAYLISTID));
+            String date = cursor.getString(cursor.getColumnIndex(DATE));
             int id = cursor.getInt(cursor.getColumnIndex(ID));
-            int idAcc =cursor.getInt(cursor.getColumnIndex(IDACC));
+            int idAcc = cursor.getInt(cursor.getColumnIndex(IDACC));
 
-            list.add(new Video(publishedAt,title,description,url,kind,videoID,playlistId,date,id,idAcc));
+            list.add(new Video(publishedAt, title, description, url, kind, videoID, playlistId, date, id, idAcc));
         }
         return list;
     }
+
     public int deleteItemInXemSau(int id) {
         sqLiteDatabase = getWritableDatabase();
         return sqLiteDatabase.delete(DB_TABLE_XEM_SAU, "id=?", new String[]{String.valueOf(id)});
     }
-
 
 
     public void InsertAccount(Account account) {
@@ -237,11 +247,12 @@ public class SqlHelper extends
         contentValues.put("address", account.getAddress());
         sqLiteDatabase.insert(DB_TABLE_ACCOUNT, null, contentValues);
     }
-    public List<Account> getAllAccount(){
+
+    public List<Account> getAllAccount() {
         List<Account> list = new ArrayList<>();
         sqLiteDatabase = getReadableDatabase();
         //cursor con trỏ dữ liệu
-        Cursor cursor = sqLiteDatabase.query(false,DB_TABLE_ACCOUNT,
+        Cursor cursor = sqLiteDatabase.query(false, DB_TABLE_ACCOUNT,
                 null,
                 null,
                 null,
@@ -249,33 +260,29 @@ public class SqlHelper extends
                 null,
                 null,
                 null);
-        while (cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             int id = cursor.getInt(cursor.getColumnIndex("id"));
-            String phone =cursor.getString(cursor.getColumnIndex("phone"));
-            String password =cursor.getString(cursor.getColumnIndex("password"));
-            String fullname =cursor.getString(cursor.getColumnIndex("fullname"));
-            String address =cursor.getString(cursor.getColumnIndex("address"));
-            list.add(new Account(id,phone,password,fullname,address));
+            String phone = cursor.getString(cursor.getColumnIndex("phone"));
+            String password = cursor.getString(cursor.getColumnIndex("password"));
+            String fullname = cursor.getString(cursor.getColumnIndex("fullname"));
+            String address = cursor.getString(cursor.getColumnIndex("address"));
+            list.add(new Account(id, phone, password, fullname, address));
         }
         return list;
     }
 
 
-    public void upDatePass(String sdt, String pass){
+    public void upDatePass(String sdt, String pass) {
         sqLiteDatabase = getWritableDatabase();
         contentValues = new ContentValues();
-        contentValues.put("password",pass);
-        sqLiteDatabase.update(DB_TABLE_ACCOUNT,contentValues,"phone" + " = ?",new String[] {sdt});
-         sqLiteDatabase.close();
+        contentValues.put("password", pass);
+        sqLiteDatabase.update(DB_TABLE_ACCOUNT, contentValues, "phone" + " = ?", new String[]{sdt});
+        sqLiteDatabase.close();
     }
 
-
-
-
-
-
-
-
+    public void DeleteDataFilm() {
+        sqLiteDatabase.execSQL("delete from " + DB_TABLE_ALL_FILM);
+    }
 
 
     @Override

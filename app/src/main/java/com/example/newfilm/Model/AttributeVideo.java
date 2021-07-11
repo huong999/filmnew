@@ -5,6 +5,7 @@ public class AttributeVideo {
 //    String videoID,playlistId;
 //    String date;
     public static final String ID = "id";
+    public static final String USER = "user";
     public static final String PUBLISHEDAT = "publishedAt";
     public static final String TITLE = "title";
     public static final String DESCRIPTION = "description";
@@ -14,6 +15,18 @@ public class AttributeVideo {
     public static final String PLAYLISTID = "playlistId";
     public static final String DATE = "date";
     public static final String IDACC = "idAcc";
+
+    public static final String HOAT_HINH = "hoathinh";
+    public static final String KING_DI = "kinh_di";
+    public static final String KHVT = "khvt";
+    public static final String Han = "han";
+    public static final String VN = "vn";
+    public static final String DAI_TAP = "daitap";
+    public static final String ACTION = "hanh_dong";
+
+
+
+
 // "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
 //                "idAcc INTEGER,"+
 //                "publishedAt Text," +

@@ -105,11 +105,12 @@ public class LoginFragmrnt extends Fragment {
                         Toast.makeText(getContext(), getString(R.string.check_login_fail), Toast.LENGTH_SHORT).show();
                     }
 
-                } else if (username.equals("trang9699") && password.equals("12345678")) {
+                }   else {
+                    Toast.makeText(getContext(), getString(R.string.check_null), Toast.LENGTH_SHORT).show();
+                }
+                if (username.equals("0911328013") && password.equals("12345678")) {
                     Intent i = new Intent(getContext(), ReportActivity.class);
                     startActivity(i);
-                } else {
-                    Toast.makeText(getContext(), getString(R.string.check_null), Toast.LENGTH_SHORT).show();
                 }
 
             }

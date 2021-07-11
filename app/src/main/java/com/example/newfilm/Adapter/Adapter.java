@@ -69,10 +69,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
 
-    public Adapter( List<Video> list, Context context,OnItemClickListener listener) {
+    public Adapter(List<Video> list, Context context, OnItemClickListener listener) {
         this.listener = listener;
         this.list = list;
         this.context = context;
+    }
+
+    public void update(List<Video> list) {
+
+        notifyDataSetChanged();
+        this.list = list;
     }
 
     @NonNull
@@ -112,7 +118,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                                 SharedPreferences sharedPreferences = context.getSharedPreferences(SHARE_PRE_NAME, MODE_PRIVATE);
                                 DateFormat df = new SimpleDateFormat("HH:mm dd/MM/yyyy");
                                 String date = df.format(Calendar.getInstance().getTime());
-                                Video videov = new Video( list.get(position).getPublishedAt(), list.get(position).getTitle(), list.get(position).getDescription(), list.get(position).getUrl(), list.get(position).getKind(), list.get(position).getVideoID(), list.get(position).getPlaylistId(),date,sharedPreferences.getInt(ACCOUNT_ID, 0));
+                                Video videov = new Video(list.get(position).getPublishedAt(), list.get(position).getTitle(), list.get(position).getDescription(), list.get(position).getUrl(), list.get(position).getKind(), list.get(position).getVideoID(), list.get(position).getPlaylistId(), date, sharedPreferences.getInt(ACCOUNT_ID, 0), "");
                                 sqlHelper.InsertFilmToXemSau(videov);
                                 Toast.makeText(context, "Đã Thêm vào xem sau", Toast.LENGTH_SHORT).show();
                                 return true;

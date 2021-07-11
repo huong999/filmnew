@@ -1,295 +1,327 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ScrollView
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#4C4848">
-        <RelativeLayout
+        android:layout_height="match_parent">
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#4C4848">
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/text3"
-                android:layout_marginTop="70dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Thống kê User"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="15dp"/>
+                android:layout_height="match_parent">
 
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text3"
-                android:layout_marginTop="50dp"
-                android:id="@+id/prog">
-
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="240dp"
-                    android:layout_height="210dp"
-                    android:layout_centerInParent="true"
-                    android:indeterminate="false"
-                    android:max="100"
-                    android:progress="0"
-                    android:progressDrawable="@drawable/custom_progress"
-                    android:secondaryProgress="0"
-                    android:layout_centerHorizontal="true" />
-
-
-                <TextView
-                    android:id="@+id/txtProgress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/progressBar"
-                    android:layout_centerInParent="true"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Số user"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/prog"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="15dp">
                 <RelativeLayout
+                    android:id="@+id/text3"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/txt5">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70dp">
+
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Thống kê phim"
+                        android:layout_marginLeft="15dp"
+                        android:text="Thống kê User"
                         android:textColor="@color/white"
                         android:textSize="20dp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
+
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:id="@+id/reporthd"
+                    android:id="@+id/prog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text3"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="50dp">
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="240dp"
+                        android:layout_height="210dp"
+                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/custom_progress"
+                        android:secondaryProgress="0" />
+
+
+                    <TextView
+                        android:id="@+id/txtProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/progressBar"
+                        android:layout_centerInParent="true"
+                        android:text="Số user"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/txt5"
+                    android:layout_below="@+id/prog"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="20dp">
-                    <RelativeLayout
-                        android:layout_width="170dp"
-                        android:layout_height="120dp"
-                        android:background="@drawable/report_drawable"
-                        android:id="@+id/r1">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Phim hành động"
-                            android:textSize="18dp"
-                            android:textColor="@color/white"
-                            android:id="@+id/txtbtn1"/>
-                        <TextView
-                            android:id="@+id/idfilmhd"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtbtn1"
-                            android:layout_marginTop="20dp"
-                            android:text="Tổng phim"
-                            android:layout_centerHorizontal="true"
-                            android:visibility="invisible"/>
 
+                    <RelativeLayout
+                        android:id="@+id/txt5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Thống kê phim"
+                            android:textColor="@color/white"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="170dp"
-                        android:layout_height="120dp"
-                        android:background="@drawable/report_drawable"
-                        android:layout_toRightOf="@+id/r1"
-                        android:layout_marginLeft="30dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Phim kinh dị"
-                            android:textSize="18dp"
-                            android:textColor="@color/white"
-                            android:id="@+id/txtbtn2"/>
-                        <TextView
-                            android:id="@+id/idfilmkd"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtbtn2"
-                            android:layout_marginTop="20dp"
-                            android:text="Tổng phim"
-                            android:layout_centerHorizontal="true"
-                            android:visibility="invisible"/>
+                        android:id="@+id/reporthd"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/txt5"
+                        android:layout_marginTop="20dp">
 
-                    </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/r1"
+                            android:layout_width="170dp"
+                            android:layout_height="120dp"
+                            android:background="@drawable/report_drawable">
 
-                    <RelativeLayout
-                        android:id="@+id/r2"
-                        android:layout_width="170dp"
-                        android:layout_height="120dp"
-                        android:background="@drawable/report_drawable"
-                        android:layout_below="@+id/r1"
-                        android:layout_marginTop="30dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Phim hoạt hình"
-                            android:textSize="18dp"
-                            android:textColor="@color/white"
-                            android:id="@+id/txtbtn3"/>
-                        <TextView
-                            android:id="@+id/filmhh"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtbtn3"
-                            android:layout_marginTop="20dp"
-                            android:text="Tổng phim"
-                            android:layout_centerHorizontal="true"
-                            android:visibility="invisible"/>
+                            <TextView
+                                android:id="@+id/txtbtn1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Phim hành động"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
 
-                    </RelativeLayout>
+                            <TextView
+                                android:id="@+id/idfilmhd"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtbtn1"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="20dp"
+                                android:text="Tổng phim"
+                                android:textColor="@color/contentBodyColor" />
 
-                    <RelativeLayout
-                        android:layout_width="170dp"
-                        android:layout_height="120dp"
-                        android:background="@drawable/report_drawable"
-                        android:layout_toRightOf="@+id/r2"
-                        android:layout_marginLeft="30dp"
-                        android:layout_below="@+id/r1"
-                        android:layout_marginTop="30dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Phim Việt Nam"
-                            android:textSize="18dp"
-                            android:textColor="@color/white"
-                            android:id="@+id/txtbtn4"/>
-                        <TextView
-                            android:id="@+id/filmvn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtbtn4"
-                            android:layout_marginTop="20dp"
-                            android:text="Tổng phim"
-                            android:layout_centerHorizontal="true"
-                            android:visibility="invisible"/>
+                        </RelativeLayout>
 
-                    </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="170dp"
+                            android:layout_height="120dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_toRightOf="@+id/r1"
+                            android:background="@drawable/report_drawable">
 
-                    <RelativeLayout
-                        android:id="@+id/r3"
-                        android:layout_width="170dp"
-                        android:layout_height="120dp"
-                        android:background="@drawable/report_drawable"
-                        android:layout_below="@+id/r2"
-                        android:layout_marginTop="30dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Phim Hàn Quốc"
-                            android:textSize="18dp"
-                            android:textColor="@color/white"
-                            android:id="@+id/txtbtn5"/>
-                        <TextView
-                            android:id="@+id/filmhq"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtbtn5"
-                            android:layout_marginTop="20dp"
-                            android:text="Tổng phim"
-                            android:layout_centerHorizontal="true"
-                            android:visibility="invisible"/>
+                            <TextView
+                                android:id="@+id/txtbtn2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Phim kinh dị"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
 
-                    </RelativeLayout>
+                            <TextView
+                                android:id="@+id/idfilmkd"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtbtn2"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="20dp"
+                                android:text="Tổng phim"
+                                android:textColor="@color/contentBodyColor" />
 
-                    <RelativeLayout
-                        android:layout_width="170dp"
-                        android:layout_height="120dp"
-                        android:background="@drawable/report_drawable"
-                        android:layout_toRightOf="@+id/r3"
-                        android:layout_marginLeft="30dp"
-                        android:layout_below="@+id/r2"
-                        android:layout_marginTop="30dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Phim lẻ"
-                            android:textSize="18dp"
-                            android:textColor="@color/white"
-                            android:id="@+id/txtbtn6"/>
-                        <TextView
-                            android:id="@+id/filmle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtbtn6"
-                            android:layout_marginTop="20dp"
-                            android:text="Tổng phim"
-                            android:layout_centerHorizontal="true"
-                            android:visibility="invisible"/>
+                        </RelativeLayout>
 
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/r4"
-                        android:layout_width="170dp"
-                        android:layout_height="120dp"
-                        android:background="@drawable/report_drawable"
-                        android:layout_below="@+id/r3"
-                        android:layout_marginTop="30dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Phim khoa học viễn tưởng"
-                            android:textSize="18dp"
-                            android:textColor="@color/white"
-                            android:id="@+id/txtbtn7"
-                            android:lines="2"/>
-                        <TextView
-                            android:id="@+id/filmkhvt"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtbtn7"
-                            android:layout_marginTop="10dp"
-                            android:text="Tổng phim"
-                            android:layout_centerHorizontal="true"
-                            android:visibility="invisible"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="170dp"
-                        android:layout_height="120dp"
-                        android:background="@drawable/report_drawable"
-                        android:layout_toRightOf="@+id/r4"
-                        android:layout_marginLeft="30dp"
-                        android:layout_below="@+id/r3"
-                        android:layout_marginTop="30dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Phim dài tập"
-                            android:textSize="18dp"
-                            android:textColor="@color/white"
-                            android:id="@+id/txtbtn8"/>
-                        <TextView
-                            android:id="@+id/filmdaitap"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtbtn8"
+                        <RelativeLayout
+                            android:id="@+id/r2"
+                            android:layout_width="170dp"
+                            android:layout_height="120dp"
+                            android:layout_below="@+id/r1"
                             android:layout_marginTop="30dp"
-                            android:text="Tổng phim"
-                            android:layout_centerHorizontal="true"
-                            android:visibility="invisible"/>
+                            android:background="@drawable/report_drawable">
+
+                            <TextView
+                                android:id="@+id/txtbtn3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Phim hoạt hình"
+                                android:textColor="@color/contentBodyColor"
+
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:textColor="@color/white"
+                                android:id="@+id/filmhh"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtbtn3"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="20dp"
+                                android:text="Tổng phim" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="170dp"
+                            android:layout_height="120dp"
+                            android:layout_below="@+id/r1"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_toRightOf="@+id/r2"
+                            android:background="@drawable/report_drawable">
+
+                            <TextView
+
+                                android:id="@+id/txtbtn4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Phim Việt Nam"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:id="@+id/filmvn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtbtn4"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="20dp"
+                                android:text="Tổng phim"
+                                android:textColor="@color/contentBodyColor" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/r3"
+                            android:layout_width="170dp"
+                            android:layout_height="120dp"
+                            android:layout_below="@+id/r2"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/report_drawable">
+
+                            <TextView
+                                android:id="@+id/txtbtn5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Phim Hàn Quốc"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:id="@+id/filmhq"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtbtn5"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="20dp"
+                                android:text="Tổng phim"
+                                android:textColor="@color/contentBodyColor" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="170dp"
+                            android:layout_height="120dp"
+                            android:layout_below="@+id/r2"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_toRightOf="@+id/r3"
+                            android:background="@drawable/report_drawable">
+
+                            <TextView
+                                android:id="@+id/txtbtn6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Phim lẻ"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:id="@+id/filmle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtbtn6"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="20dp"
+                                android:text="Tổng phim"
+                                android:textColor="@color/contentBodyColor" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/r4"
+                            android:layout_width="170dp"
+                            android:layout_height="120dp"
+                            android:layout_below="@+id/r3"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/report_drawable">
+
+                            <TextView
+                                android:id="@+id/txtbtn7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:lines="2"
+                                android:text="Phim khoa học viễn tưởng"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:id="@+id/filmkhvt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtbtn7"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:text="Tổng phim"
+                                android:textColor="@color/contentBodyColor" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="170dp"
+                            android:layout_height="120dp"
+                            android:layout_below="@+id/r3"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_toRightOf="@+id/r4"
+                            android:background="@drawable/report_drawable">
+
+                            <TextView
+                                android:id="@+id/txtbtn8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Phim dài tập"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:id="@+id/filmdaitap"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtbtn8"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="30dp"
+                                android:text="Tổng phim"
+                                android:textColor="@color/contentBodyColor" />
+
+                        </RelativeLayout>
+
 
                     </RelativeLayout>
-
 
 
                 </RelativeLayout>
@@ -298,9 +330,8 @@
             </RelativeLayout>
 
 
-        </RelativeLayout>
+        </ScrollView>
+    </LinearLayout>
 
-
-    </ScrollView>
 
 </layout>

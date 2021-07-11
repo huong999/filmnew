@@ -83,7 +83,7 @@ public class DetailBo extends AppCompatActivity {
     CommentAdapter mAdapter = null;
 
     String API_KEY = "AIzaSyCFi6Ctl4thP43H3PkOYJyV9ipOYDiSPAY";
-    String u = "http://demo2986287.mockable.io/phimbo";
+    String u = "http://demo8640072.mockable.io/listfilm";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -383,6 +383,7 @@ public class DetailBo extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
 
     }
+
     public boolean getStatus() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARE_PRE_NAME, MODE_PRIVATE);
         boolean check = sharedPreferences.getBoolean(ACCOUNT_STATUS, false);
@@ -409,26 +410,27 @@ public class DetailBo extends AppCompatActivity {
                 }).create();
         alertDialog.show();
     }
-private void initData(){
-    list = new ArrayList<>();
-    list1 = new ArrayList<>();
-    listcmttt = new ArrayList<>();
-    listTT = new ArrayList<>();
-    toolbar = findViewById(R.id.toolbar);
-    txname = findViewById(R.id.name);
-    txTime = findViewById(R.id.time);
-    expTv1 = (ExpandableTextView) findViewById(R.id.expand_text_view);
-    rc = findViewById(R.id.rc1);
-    rc1 = findViewById(R.id.rc);
-    imgV = findViewById(R.id.img);
-    mList_videos = (RecyclerView) findViewById(R.id.cmt);
-    bt = findViewById(R.id.bt);
-    cmttt = findViewById(R.id.cmtt);
-    txTime = findViewById(R.id.time);
-    txlike = findViewById(R.id.like);
-    viewtx = findViewById(R.id.eye);
-    txDislike = findViewById(R.id.dislike);
-    btsent = findViewById(R.id.sent);
-    txhome = findViewById(R.id.home);
-}
+
+    private void initData() {
+        list = new ArrayList<>();
+        list1 = new ArrayList<>();
+        listcmttt = new ArrayList<>();
+        listTT = new ArrayList<>();
+        toolbar = findViewById(R.id.toolbar);
+        txname = findViewById(R.id.name);
+        txTime = findViewById(R.id.time);
+        expTv1 = (ExpandableTextView) findViewById(R.id.expand_text_view);
+        rc = findViewById(R.id.rc1);
+        rc1 = findViewById(R.id.rc);
+        imgV = findViewById(R.id.img);
+        mList_videos = (RecyclerView) findViewById(R.id.cmt);
+        bt = findViewById(R.id.bt);
+        cmttt = findViewById(R.id.cmtt);
+        txTime = findViewById(R.id.time);
+        txlike = findViewById(R.id.like);
+        viewtx = findViewById(R.id.eye);
+        txDislike = findViewById(R.id.dislike);
+        btsent = findViewById(R.id.sent);
+        txhome = findViewById(R.id.home);
+    }
 }

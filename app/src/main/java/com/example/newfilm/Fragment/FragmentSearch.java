@@ -117,7 +117,7 @@ public class FragmentSearch extends Fragment {
                 JSONObject jsonresourceId = jsonsnippet.getJSONObject("resourceId");
                 String kind = jsonresourceId.getString("kind");
                 String videoId = jsonresourceId.getString("videoId");
-                Video v = new Video(publishedAt, title, description, urlimg, kind, videoId, playlistId);
+                Video v = new Video(publishedAt, title, description, urlimg, kind, videoId, playlistId,"");
                 videos.add(v);
 
             }

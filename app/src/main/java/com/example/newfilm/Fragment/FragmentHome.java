@@ -3,12 +3,14 @@ package com.example.newfilm.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.newfilm.Activity.Detail;
 import com.example.newfilm.Adapter.Adapter;
+import com.example.newfilm.Model.AttributeVideo;
 import com.example.newfilm.Model.Video;
 import com.example.newfilm.OnClick.OnItemClickListener;
 import com.example.newfilm.R;
@@ -41,9 +44,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentHome extends Fragment {
+
     FragmenthomeBinding binding;
     SqlHelper sqlHelper;
-    List<Video> list, listHan, listViet, listAc, listhh, listKinh;
+    List<Video> list, listHan, listViet, listAc, listhh, listKinh, a;
     Adapter adapter;
     String API_KEY = "AIzaSyCFi6Ctl4thP43H3PkOYJyV9ipOYDiSPAY";
     String idPlayList1 = "PLxu-S05deEMZkKbZwc9P3FTZ3wJv8rMCF";
@@ -81,21 +85,44 @@ public class FragmentHome extends Fragment {
         sqlHelper = new SqlHelper(getContext());
         getData();
         list = new ArrayList<>();
+        a = new ArrayList<>();
         listHan = new ArrayList<>();
         listViet = new ArrayList<>();
         listAc = new ArrayList<>();
         listhh = new ArrayList<>();
         listKinh = new ArrayList<>();
+        if (sqlHelper.getAllFilm().size() > 0) {
+            // sqlHelper.DeleteDataFilm();
+        } else {
+            Data(url, getContext());
+            DataAc(urlAction, getContext());
+            DataKinh(urlKinh, getContext());
+            DataHh(urlHh, getContext());
+            DataViet(urlViet, getContext());
+            DataHan(urlHan, getContext());
+        }
 
+        setAdapter(sqlHelper.getAllFilm(), binding.rc);
+        for (int i = 0; i < sqlHelper.getAllFilm().size(); i++) {
 
-        Data(url, getContext());
-        DataAc(urlAction,getContext());
-        DataKinh(urlKinh,getContext());
-        DataHh(urlHh,getContext());
-        DataViet(urlViet,getContext());
-        DataHan(urlHan,getContext());
-
-
+            if (sqlHelper.getAllFilm().get(i).getCategory().trim().equals("vn")) {
+                listViet.add(sqlHelper.getAllFilm().get(i));
+            } else if (sqlHelper.getAllFilm().get(i).getCategory().trim().equals(AttributeVideo.ACTION)) {
+                listAc.add(sqlHelper.getAllFilm().get(i));
+            } else if (sqlHelper.getAllFilm().get(i).getCategory().trim().equals(AttributeVideo.Han)) {
+                listHan.add(sqlHelper.getAllFilm().get(i));
+            } else if (sqlHelper.getAllFilm().get(i).getCategory().trim().equals(AttributeVideo.KING_DI)) {
+                listKinh.add(sqlHelper.getAllFilm().get(i));
+            } else if (sqlHelper.getAllFilm().get(i).getCategory().trim().equals(AttributeVideo.HOAT_HINH)) {
+                listhh.add(sqlHelper.getAllFilm().get(i));
+            }
+        }
+        Toast.makeText(getContext(), "vn" + listViet.size() + "kinhdi" + listKinh.size(), Toast.LENGTH_SHORT).show();
+        setAdapter(listViet, binding.rc4);
+        setAdapter(listAc, binding.rc1);
+        setAdapter(listKinh, binding.rc2);
+        setAdapter(listhh, binding.rc3);
+        setAdapter(listHan, binding.rc5);
 
         return binding.getRoot();
     }
@@ -132,9 +159,9 @@ public class FragmentHome extends Fragment {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Json(response, list);
+                Json(response, list, AttributeVideo.HOAT_HINH);
 
-                setAdapter(list, binding.rc);
+                //  setAdapter(list, binding.rc);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -144,13 +171,14 @@ public class FragmentHome extends Fragment {
         });
         requestQueue.add(jsonObjectRequest);
     }
+
     public void DataHan(final String url, final Context context) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Json(response, listHan);
-                setAdapter(listHan, binding.rc5);
+                Json(response, listHan, AttributeVideo.Han);
+                // setAdapter(listHan, binding.rc5);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -160,13 +188,15 @@ public class FragmentHome extends Fragment {
         });
         requestQueue.add(jsonObjectRequest);
     }
+
     public void DataViet(final String url, final Context context) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Json(response, listViet);
-                setAdapter(listViet, binding.rc4);
+                Json(response, listViet, AttributeVideo.VN);
+//                setAdapter(listViet, binding.rc4);
+//                adapter.update(listViet);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -176,13 +206,14 @@ public class FragmentHome extends Fragment {
         });
         requestQueue.add(jsonObjectRequest);
     }
+
     public void DataAc(final String url, final Context context) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Json(response, listAc);
-                setAdapter(listAc, binding.rc1);
+                Json(response, listAc, AttributeVideo.ACTION);
+                // setAdapter(listAc, binding.rc1);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -192,13 +223,15 @@ public class FragmentHome extends Fragment {
         });
         requestQueue.add(jsonObjectRequest);
     }
+
     public void DataKinh(final String url, final Context context) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Json(response, listKinh);
-                setAdapter(listKinh, binding.rc2);
+                Json(response, listKinh, AttributeVideo.KING_DI);
+
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -208,13 +241,14 @@ public class FragmentHome extends Fragment {
         });
         requestQueue.add(jsonObjectRequest);
     }
+
     public void DataHh(final String url, final Context context) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Json(response, listhh);
-                setAdapter(listhh, binding.rc3);
+                Json(response, listhh, "hoathinh");
+                //   setAdapter(listhh, binding.rc3);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -225,7 +259,7 @@ public class FragmentHome extends Fragment {
         requestQueue.add(jsonObjectRequest);
     }
 
-    public void Json(JSONObject response, List<Video> videos) {
+    public void Json(JSONObject response, List<Video> videos, String category) {
         try {
 
             JSONArray jsonArrayItems = response.getJSONArray("items");
@@ -245,7 +279,7 @@ public class FragmentHome extends Fragment {
                 JSONObject jsonresourceId = jsonsnippet.getJSONObject("resourceId");
                 String kind = jsonresourceId.getString("kind");
                 String videoId = jsonresourceId.getString("videoId");
-                Video v = new Video(publishedAt, title, description, urlimg, kind, videoId, playlistId);
+                Video v = new Video(publishedAt, title, description, urlimg, kind, videoId, playlistId, category);
                 sqlHelper.InsertFilmToAllFilm(v);
                 videos.add(v);
 
@@ -280,7 +314,7 @@ public class FragmentHome extends Fragment {
         rc.setAdapter(adapter);
         RecyclerView.LayoutManager layoutManager1 = new GridLayoutManager(getContext(), 1, RecyclerView.HORIZONTAL, false);
         rc.setLayoutManager(layoutManager1);
-
+        adapter.update(videos);
     }
 
 

@@ -67,7 +67,7 @@ import static com.example.newfilm.Model.AccountAttribute.SHARE_PRE_NAME;
 
 public class Detail extends AppCompatActivity {
     Toolbar toolbar;
-    TextView txname, txTime, txhome,txlike,txDislike,txView,cmttt;
+    TextView txname, txTime, txhome, txlike, txDislike, txView, cmttt;
     ExpandableTextView expTv1;
     List<Video> listTT;
     RecyclerView rc;
@@ -130,8 +130,6 @@ public class Detail extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-
-
         final SharedPreferences sharedPreferences = getSharedPreferences(SHARE_PRE_NAME, MODE_PRIVATE);
         final Intent intent = getIntent();
         name = intent.getStringExtra("name");
@@ -148,7 +146,7 @@ public class Detail extends AppCompatActivity {
         txname.setText(name);
         txTime.setText(time);
         expTv1.setText(des);
-getJson(listCount);
+        getJson(listCount);
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,7 +162,7 @@ getJson(listCount);
                 startActivity(intent);
                 DateFormat df = new SimpleDateFormat("HH:mm dd/MM/yyyy");
                 String date = df.format(Calendar.getInstance().getTime());
-                sqlHelper.InsertFilmToHistory(new Video(idPlayList, name, des, img, kind, id, idPlayList, date, sharedPreferences.getInt(ACCOUNT_ID, 0)));
+                sqlHelper.InsertFilmToHistory(new Video(idPlayList, name, des, img, kind, id, idPlayList, date, sharedPreferences.getInt(ACCOUNT_ID, 0), ""));
 
             }
         });
@@ -241,7 +239,7 @@ getJson(listCount);
                 JSONObject jsonresourceId = jsonsnippet.getJSONObject("resourceId");
                 String kind = jsonresourceId.getString("kind");
                 String videoId = jsonresourceId.getString("videoId");
-                Video v = new Video(publishedAt, title, description, urlimg, kind, videoId, playlistId);
+                Video v = new Video(publishedAt, title, description, urlimg, kind, videoId, playlistId, "");
                 videos.add(v);
 
             }
@@ -401,12 +399,12 @@ getJson(listCount);
                         String pattern = "###,###";
                         DecimalFormat dcf = (DecimalFormat) NumberFormat.getNumberInstance(locale);
                         dcf.applyPattern(pattern);
-                        txlike.setText(""+ dcf.format(like));
-                        txDislike.setText(""+ dcf.format(dislike));
-                        txView.setText(""+ dcf.format(view));
-                        cmttt.setText("Comment " +"( "+ dcf.format(numComment) +" )");
-                      //  list.add(new YoutubeCommentModel(like, dislike, numComment, view));
-                      //  Toast.makeText(Detail.this, like + dislike + "", Toast.LENGTH_SHORT).show();
+                        txlike.setText("" + dcf.format(like));
+                        txDislike.setText("" + dcf.format(dislike));
+                        txView.setText("" + dcf.format(view));
+                        cmttt.setText("Comment " + "( " + dcf.format(numComment) + " )");
+                        //  list.add(new YoutubeCommentModel(like, dislike, numComment, view));
+                        //  Toast.makeText(Detail.this, like + dislike + "", Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (JSONException e) {

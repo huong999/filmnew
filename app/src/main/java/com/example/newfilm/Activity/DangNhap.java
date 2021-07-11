@@ -14,19 +14,21 @@ import com.example.newfilm.databinding.ActivityDangNhapBinding;
 public class DangNhap extends AppCompatActivity {
 
     private static final String TAG = "";
-ActivityDangNhapBinding binding;
+    ActivityDangNhapBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dang_nhap);
         getFragment(LoginFragmrnt.newInstance());
     }
-    public void getFragment(Fragment fragment){
+
+    public void getFragment(Fragment fragment) {
         try {
-            getSupportFragmentManager().beginTransaction().replace(R.id.dangnhap,fragment).commit();
-        }catch (Exception e){
+            getSupportFragmentManager().beginTransaction().replace(R.id.dangnhap, fragment).commit();
+        } catch (Exception e) {
             e.printStackTrace();
-            Log.d(TAG,"getFragment"+e.getMessage());
+            Log.d(TAG, "getFragment" + e.getMessage());
         }
     }
 }
