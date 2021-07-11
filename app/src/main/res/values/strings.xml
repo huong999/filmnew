@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">New Film</string>
+    <string name="open">Open</string>
+    <string name="close">close</string>
+    <string name="engine_init_error">Map engine initialization</string>
+
+    <!--    login-->
+    <string name="input_username"> Enter your phone </string>
+    <string name="input_password"> Enter password </string>
+    <string name="forget_pass"> Forgot password? </string>
+    <string name="confirm_pass">Confirm Password</string>
+    <string name="newbie"> Don\'t have an account yet? </string>
+    <string name="check_login_fail"> Wrong account name or password </string>
+    <string name="check_null"> Username or password cannot be left blank </string>
+    <string name="check_equal"> Confirm password must be the same </string>
+    <string name="check_sucess_false"> Invalid information </string>
+    <string name="check_sucess_true"> Registered successfully </string>
+    <string name="check_confirm_code"> Please enter your confirmation code </string>
+    <string name="error_evaluate"> There was an error during evaluation, Please try again later </string>
+    <string name="sign_up"> Register now </string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_now">Sign in now?</string>
+    <string name="full_name">Full name: </string>
+    <string name="sign_out">Log out</string>
+    <string name="email_address">Email Address: </string>
+    <string name="phone_number">Phone Number: </string>
+    <string name="confirm">Confirm</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="address">Address: </string>
+    <string name="un_login"> You are not logged in yet! </string>
+    <string name="delete_history">Delete History</string>
+    <string name="login_sucess">Login Sucessfully</string>
+    <string name="sign_up_acc"> Register for an account </string>
+    <string name="confirm_code"> Enter the verification code: </string>
+    <string name="select_option_buy">Select a payment method</string>
+    <string name="delete_trans">Transaction is canceled</string>
+    <string name="delete_success">Delete Sucessfully</string>
+    <string name="your_choice">Order successfully \n Payment method: </string>
+    <string name="logout_success">Logout Success</string>
+</resources>

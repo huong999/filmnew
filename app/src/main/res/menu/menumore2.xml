@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:icon="@drawable/ic_share_24"
+        android:id="@+id/chiase"
+        android:title="Chia sẻ" />
+    <item
+        android:icon="@drawable/ic_download"
+        android:id="@+id/taixuong"
+        android:title="Tải xuống" />
+    <item android:id="@+id/nolike"
+        android:title="Xóa khỏi danh sách"/>
+</menu>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Trang chủ" />
+
+    <item
+        android:id="@+id/timkiem"
+        android:icon="@drawable/ic_seach"
+        android:title="Tìm kiếm" />
+    <item
+        android:icon="@drawable/ic_baseline_playlist_add_24"
+        android:id="@+id/menuFollowUs"
+        android:orderInCategory="600"
+        android:title="Danh mục phim">
+
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/filmbo"
+                    android:title="Phim dài tập" />
+                <item
+                    android:id="@+id/phimKhoaHoc"
+                    android:title="Phim khoa học viễn tưởng" />
+
+                <item
+                    android:id="@+id/phimle"
+                    android:title="Phim lẻ" />
+                <item
+                    android:id="@+id/phimhai"
+                    android:title="Hài hước" />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/xemsau"
+        android:icon="@drawable/ic_xemsau"
+        android:title="Xem sau" />
+    <item
+        android:id="@+id/lichsu"
+        android:icon="@drawable/ic_baseline_history_24"
+        android:title="Lịch sử" />
+    <item android:id="@+id/off"
+        android:icon="@drawable/ic_downward_24"
+        android:title="OffLine"
+        />
+    <item
+        android:id="@+id/vitri"
+        android:icon="@drawable/ic_vitri"
+        android:title="Rạp phim gần bạn" />
+
+    <item android:id="@+id/acc"
+        android:icon="@drawable/ic_account"
+        android:title="Tài khoản"
+        />
+
+</menu>

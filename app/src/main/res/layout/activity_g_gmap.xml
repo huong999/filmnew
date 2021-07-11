@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:background="@drawable/desigbt"
+                android:layout_width="@dimen/_255sdp"
+                android:layout_height="@dimen/_30sdp">
+                <EditText
+                    android:layout_gravity="center"
+                    android:background="@drawable/desi"
+                    android:textColorHint="#000"
+                    android:id="@+id/tx"
+                    android:layout_width="@dimen/_240sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:hint=" Search"
+                    android:textColor="#000"
+                    android:textSize="@dimen/_14sdp"
+
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_seach"
+                android:id="@+id/searchRequestBtn"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="27dp"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <fragment
+            android:id="@+id/mapfragment"
+            class="com.here.android.mpa.mapping.AndroidXMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
+
+        <Button
+            android:id="@+id/resultListBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="Result List"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

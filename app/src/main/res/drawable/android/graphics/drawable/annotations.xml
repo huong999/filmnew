@@ -1,0 +1,5 @@
+<root>
+    <item name='android.graphics.drawable.Drawable boolean getPadding(android.graphics.Rect) 0'>
+        <annotation name='java.lang.Deprecated' />
+    </item>
+</root>

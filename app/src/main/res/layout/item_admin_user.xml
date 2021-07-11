@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_30sdp"
+        android:background="#2B2828">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileCircleImageView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/avatar"
+                app:civ_border_color="@color/gradientLightBlue"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:id="@+id/usernameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/profileCircleImageView"
+                android:text="Tên acc"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/cam"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="Số điện thoại"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/cam"
+                android:layout_below="@id/usernameTextView"
+                android:layout_toRightOf="@id/profileCircleImageView"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</layout>

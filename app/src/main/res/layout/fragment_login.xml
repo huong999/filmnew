@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#958888"
+        android:padding="@dimen/_15sdp">
+
+        <ImageView
+            android:id="@+id/btnBackToHomeFragment"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_back">
+
+        </ImageView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_10sdp"
+
+            android:src="@drawable/logo">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/layoutEdtUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            app:hintEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textColor="#000000"
+                android:textColorHint="#EC8440"
+                android:id="@+id/edtUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tên đăng nhập"
+                android:inputType="phone"
+                app:counterEnabled="true">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/layoutedtPassWord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutEdtUserName"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textColor="#EC8440"
+                android:textColorHint="#EC8440"
+                android:id="@+id/edtPasWord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập pass word"
+                android:inputType="textPassword">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <CheckBox
+            android:textStyle="bold"
+            android:fontFamily="@font/almendra"
+            android:textColor="#EC8440"
+            android:text="Remember PassWord"
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutedtPassWord" />
+
+        <TextView
+            android:fontFamily="@font/almendra"
+            android:textColor="#EC8440"
+            android:id="@+id/tvForgetPassWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkbox"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Quên mật khẩu">
+
+        </TextView>
+
+        <Button
+            android:textStyle="bold"
+            android:fontFamily="@font/almendra"
+            android:textColor="#F6F2EF"
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvForgetPassWord"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:background="#E13A3A"
+            android:text="Đăng nhập"
+          >
+
+        </Button>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/newbie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Không có tài khoản ?"
+                android:textSize="@dimen/_13sdp"></TextView>
+
+            <TextView
+                android:textColor="#fff"
+                android:id="@+id/newAcc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_toRightOf="@id/newbie"
+                android:text="Tạo tài khoản mới"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold">
+
+            </TextView>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>
