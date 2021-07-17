@@ -104,7 +104,6 @@ public class LoginFragmrnt extends Fragment {
                     if (!check) {
                         Toast.makeText(getContext(), getString(R.string.check_login_fail), Toast.LENGTH_SHORT).show();
                     }
-
                 }   else {
                     Toast.makeText(getContext(), getString(R.string.check_null), Toast.LENGTH_SHORT).show();
                 }

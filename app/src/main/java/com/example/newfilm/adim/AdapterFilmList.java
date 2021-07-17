@@ -9,33 +9,35 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.newfilm.Model.Account;
+import com.bumptech.glide.Glide;
+import com.example.newfilm.Model.Video;
 import com.example.newfilm.R;
 
 import java.util.List;
 
-public class AdapterListUser extends RecyclerView.Adapter<AdapterListUser.ViewHolder> {
-    private List<Account> list;
-    private Context context;
+import de.hdodenhof.circleimageview.CircleImageView;
 
-    public AdapterListUser(List<Account> list, Context context) {
-        this.list = list;
+public class AdapterFilmList extends RecyclerView.Adapter<AdapterFilmList.ViewHolder> {
+    private Context context;
+    private List<Video> list;
+
+    public AdapterFilmList(Context context, List<Video> list) {
         this.context = context;
+        this.list = list;
     }
 
     @Override
-    public AdapterListUser.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdapterFilmList.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.item_admin_user, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
-
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterListUser.ViewHolder holder, int position) {
-        holder.tvName.setText(list.get(position).getFullName());
-        holder.tvSdt.setText(list.get(position).getPhone());
+    public void onBindViewHolder(@NonNull AdapterFilmList.ViewHolder holder, int position) {
+        holder.tvName.setText(list.get(position).getTitle());
+        Glide.with(context).load(list.get(position).getUrl()).into(holder.img);
     }
 
     @Override
@@ -45,11 +47,13 @@ public class AdapterListUser extends RecyclerView.Adapter<AdapterListUser.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvName, tvSdt;
+        CircleImageView img;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = (itemView).findViewById(R.id.usernameTextView1);
             tvSdt = (itemView).findViewById(R.id.txt_sdt1);
+            img = (itemView).findViewById(R.id.img);
         }
     }
 }

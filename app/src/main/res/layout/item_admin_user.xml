@@ -4,16 +4,16 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#2B2828"
-        android:padding="@dimen/_30sdp">
+        android:padding="@dimen/_5sdp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profileCircleImageView"
+                android:id="@+id/img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_centerVertical="true"
@@ -24,23 +24,22 @@
                 app:civ_border_width="2dp" />
 
             <TextView
-                android:id="@+id/usernameTextView"
+                android:id="@+id/usernameTextView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/profileCircleImageView"
+                android:layout_toRightOf="@id/img"
                 android:text="Tên acc"
                 android:textColor="@color/cam"
                 android:textSize="@dimen/_15sdp" />
 
             <TextView
-                android:id="@+id/txt_sdt"
+                android:id="@+id/txt_sdt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/usernameTextView"
+                android:layout_below="@id/usernameTextView1"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:layout_toRightOf="@id/profileCircleImageView"
-                android:text="Số điện thoại"
+                android:layout_toRightOf="@id/img"
                 android:textColor="@color/cam"
                 android:textSize="@dimen/_12sdp" />
         </RelativeLayout>

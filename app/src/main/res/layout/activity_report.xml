@@ -54,12 +54,12 @@
 
 
                     <TextView
+                        android:padding="15dp"
                         android:id="@+id/txtProgress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@+id/progressBar"
                         android:layout_centerInParent="true"
-                        android:text="Số user"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/white"
                         android:textSize="20dp" />
@@ -114,7 +114,7 @@
                                 android:layout_below="@+id/txtbtn1"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="20dp"
-                                android:text="Tổng phim"
+
                                 android:textColor="@color/contentBodyColor" />
 
                         </RelativeLayout>
@@ -140,8 +140,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/txtbtn2"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="20dp"
-                                android:text="Tổng phim"
+                                android:layout_marginTop="15dp"
+                                android:padding="15dp"
                                 android:textColor="@color/contentBodyColor" />
 
                         </RelativeLayout>
@@ -164,6 +164,7 @@
                                 android:textSize="18dp" />
 
                             <TextView
+                                android:padding="15dp"
                                 android:textColor="@color/white"
                                 android:id="@+id/filmhh"
                                 android:layout_width="wrap_content"
@@ -171,7 +172,7 @@
                                 android:layout_below="@+id/txtbtn3"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="20dp"
-                                android:text="Tổng phim" />
+                                />
 
                         </RelativeLayout>
 
@@ -200,7 +201,7 @@
                                 android:layout_below="@+id/txtbtn4"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="20dp"
-                                android:text="Tổng phim"
+                                android:padding="15dp"
                                 android:textColor="@color/contentBodyColor" />
 
                         </RelativeLayout>
@@ -222,13 +223,13 @@
                                 android:textSize="18dp" />
 
                             <TextView
+                                android:padding="15dp"
                                 android:id="@+id/filmhq"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/txtbtn5"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="20dp"
-                                android:text="Tổng phim"
                                 android:textColor="@color/contentBodyColor" />
 
                         </RelativeLayout>
@@ -257,7 +258,7 @@
                                 android:layout_below="@+id/txtbtn6"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="20dp"
-                                android:text="Tổng phim"
+                                android:padding="15dp"
                                 android:textColor="@color/contentBodyColor" />
 
                         </RelativeLayout>
@@ -286,7 +287,7 @@
                                 android:layout_below="@+id/txtbtn7"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                android:text="Tổng phim"
+                                android:padding="15dp"
                                 android:textColor="@color/contentBodyColor" />
 
                         </RelativeLayout>
@@ -315,7 +316,7 @@
                                 android:layout_below="@+id/txtbtn8"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="30dp"
-                                android:text="Tổng phim"
+                                android:padding="15dp"
                                 android:textColor="@color/contentBodyColor" />
 
                         </RelativeLayout>

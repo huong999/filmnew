@@ -43,6 +43,42 @@ public class ReportActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        binding.idfilmhd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ReportActivity.this, ListAdDetail.class);
+                i.putExtra(AttributeVideo.USER, AttributeVideo.ACTION);
+                startActivity(i);
+            }
+        });
+        binding.filmvn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ReportActivity.this, ListAdDetail.class);
+                i.putExtra(AttributeVideo.USER, AttributeVideo.VN);
+                startActivity(i);
+            }
+        });
+
+        binding.filmhq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ReportActivity.this, ListAdDetail.class);
+                i.putExtra(AttributeVideo.USER, AttributeVideo.Han);
+                startActivity(i);
+            }
+        });
+
+        binding.idfilmkd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ReportActivity.this, ListAdDetail.class);
+                i.putExtra(AttributeVideo.USER, AttributeVideo.KING_DI);
+                startActivity(i);
+            }
+        });
+
+
         for (int i = 0; i < sqlHelper.getAllFilm().size(); i++) {
             //      Toast.makeText(getContext(), sqlHelper.getAllFilm().get(i).getCategory(), Toast.LENGTH_SHORT).show();
             if (sqlHelper.getAllFilm().get(i).getCategory().trim().equals("vn")) {
@@ -62,6 +98,7 @@ public class ReportActivity extends AppCompatActivity {
         binding.filmhh.setText(listhh.size() + "");
         binding.idfilmkd.setText(listKinh.size() + "");
         binding.filmkhvt.setText(listAc.size() + "");
+        binding.idfilmhd.setText(listAc.size() + "");
 
     }
 }
