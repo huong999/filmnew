@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Trang chủ" />
+
+    <item
+        android:icon="@drawable/ic_baseline_playlist_add_24"
+        android:id="@+id/menuFollowUs"
+        android:orderInCategory="600"
+        android:title="Danh mục phim">
+
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/phimhanhdong"
+                    android:title="Phim hành động" />
+                <item
+                    android:id="@+id/phimkhoahoc"
+                    android:title="Phim kinh dị" />
+
+                <item
+                    android:id="@+id/phimle"
+                    android:title="Hoạt hình" />
+                <item
+                    android:id="@+id/phimvn"
+                    android:title="Việt Nam" />
+                <item
+                    android:id="@+id/phimhq"
+                    android:title="Hàn quốc" />
+            </group>
+        </menu>
+    </item>
+    <item android:id="@+id/acc"
+        android:icon="@drawable/ic_account"
+        android:title="Tài khoản"
+        />
+
+</menu>

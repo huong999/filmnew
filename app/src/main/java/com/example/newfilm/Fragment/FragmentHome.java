@@ -117,7 +117,7 @@ public class FragmentHome extends Fragment {
                 listhh.add(sqlHelper.getAllFilm().get(i));
             }
         }
-        Toast.makeText(getContext(), "vn" + listViet.size() + "kinhdi" + listKinh.size(), Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(getContext(), "vn" + listViet.size() + "kinhdi" + listKinh.size(), Toast.LENGTH_SHORT).show();
         setAdapter(listViet, binding.rc4);
         setAdapter(listAc, binding.rc1);
         setAdapter(listKinh, binding.rc2);
