@@ -144,12 +144,12 @@ public class StartApp extends AppCompatActivity implements NavigationView.OnNavi
                 getFragment(FragmentKHVT.newInstance());
 
                 break;
-            case R.id.vitri:
-//                toolbar.setTitle("Phim khoa học viễn tưởng");
-//                getFragment(FragmentKHVT.newInstance());
-                Intent intent = new Intent(getBaseContext(), GGmap.class);
-                startActivity(intent);
-                break;
+//            case R.id.vitri:
+////                toolbar.setTitle("Phim khoa học viễn tưởng");
+////                getFragment(FragmentKHVT.newInstance());
+//                Intent intent = new Intent(getBaseContext(), GGmap.class);
+//                startActivity(intent);
+//                break;
             case R.id.acc:
                 toolbar.setTitle("Tài khoản");
                 getFragment(FragmentAcc.newInstance());

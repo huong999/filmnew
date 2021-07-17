@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".adim.ListAdDetail"></activity>
+        <activity android:name=".adim.MenuAd"></activity>
+        <activity android:name=".adim.ListAdDetail" />
         <activity android:name=".Activity.PlayOff" />
         <activity android:name=".Activity.DangNhap" />
         <activity android:name=".Map.ResultListActivity" />
@@ -29,7 +30,6 @@
         <activity android:name=".Activity.DetailBo" />
         <activity android:name=".Activity.Detail" />
         <activity android:name=".Activity.StartApp" />
-        <activity android:name=".adim.ReportActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

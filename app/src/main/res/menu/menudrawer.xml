@@ -47,10 +47,10 @@
         android:icon="@drawable/ic_downward_24"
         android:title="OffLine"
         />
-    <item
-        android:id="@+id/vitri"
-        android:icon="@drawable/ic_vitri"
-        android:title="Rạp phim gần bạn" />
+<!--    <item-->
+<!--        android:id="@+id/vitri"-->
+<!--        android:icon="@drawable/ic_vitri"-->
+<!--        android:title="Rạp phim gần bạn" />-->
 
     <item android:id="@+id/acc"
         android:icon="@drawable/ic_account"

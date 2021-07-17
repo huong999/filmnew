@@ -21,6 +21,7 @@ import com.example.newfilm.MainActivity;
 import com.example.newfilm.Model.Account;
 import com.example.newfilm.R;
 import com.example.newfilm.SQL.SqlHelper;
+import com.example.newfilm.adim.MenuAd;
 import com.example.newfilm.adim.ReportActivity;
 import com.example.newfilm.databinding.FragmentLoginBinding;
 import com.example.newfilm.databinding.FragmentforgotpassBinding;
@@ -41,6 +42,7 @@ public class LoginFragmrnt extends Fragment {
     List<Account> list;
     SqlHelper sqlHelper;
     SharedPreferences sharedPreferences1;
+    boolean check;
 
     public static LoginFragmrnt newInstance() {
 
@@ -67,8 +69,13 @@ public class LoginFragmrnt extends Fragment {
             public void onClick(View v) {
                 String username = binding.edtUserName.getText().toString();
                 String password = binding.edtPasWord.getText().toString();
+                if (username.equals("0911328013") && password.equals("12345678")) {
+                    Intent i = new Intent(getContext(), MenuAd.class);
+                    startActivity(i);
+                    return;
+                }
                 if (username.length() > 0 && password.length() > 0) {
-                    boolean check = false;
+                    check = false;
                     for (Account x : list) {
                         if (x.getPhone().equals(username) && x.getPassword().equals(password)) {
                             Intent i = new Intent(getContext(), StartApp.class);
@@ -101,16 +108,13 @@ public class LoginFragmrnt extends Fragment {
                             break;
                         }
                     }
-                    if (!check) {
-                        Toast.makeText(getContext(), getString(R.string.check_login_fail), Toast.LENGTH_SHORT).show();
-                    }
-                }   else {
+                }
+                if (!check) {
+                    Toast.makeText(getContext(), getString(R.string.check_login_fail), Toast.LENGTH_SHORT).show();
+                } else {
                     Toast.makeText(getContext(), getString(R.string.check_null), Toast.LENGTH_SHORT).show();
                 }
-                if (username.equals("0911328013") && password.equals("12345678")) {
-                    Intent i = new Intent(getContext(), ReportActivity.class);
-                    startActivity(i);
-                }
+
 
             }
         });

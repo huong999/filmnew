@@ -64,6 +64,7 @@ dependencies {
     compile 'com.facebook.stetho:stetho-okhttp:1.5.0'
    compile 'com.github.khizar1556.MKVideoPlayer:mkvideoplayer:0.1.5'
     implementation 'net.alhazmy13.MediaPicker:libary:2.4.4'
-
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
 
 }
